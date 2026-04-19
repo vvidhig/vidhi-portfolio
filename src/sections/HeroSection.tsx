@@ -47,7 +47,7 @@ const HeroSection: React.FC = () => {
               obsessed with turning data into decisions.
             </p>
 
-            {/* Contact info */}
+            {/* Contact info
             <div className="flex flex-col gap-3 mb-10">
               <a
                 href="mailto:vvidhig417@gmail.com"
@@ -63,7 +63,7 @@ const HeroSection: React.FC = () => {
                 <span className="font-mono text-xs text-sandgold/40 uppercase tracking-widest">Phone</span>
                 <span className="font-mono text-sm text-champagne/70 group-hover:text-sandgold transition-colors">+91-6290188873</span>
               </a>
-            </div>
+            </div> */}
 
             {/* Links */}
             <div className="flex flex-wrap gap-4">
@@ -90,60 +90,70 @@ const HeroSection: React.FC = () => {
                 GitHub
               </a>
               <a
-                href="https://leetcode.com/vvidhig"
+                href="https://leetcode.com/u/vvidhig/"
+                target="_blank"
+                rel="noreferrer"
+                className="font-mono text-xs text-sandgold border border-sandgold/40 px-6 py-3 tracking-widest uppercase hover:border-sandgold hover:bg-sandgold/10 transition-all duration-200"
+              >
+                Leetcode
+              </a>
+              <a
+                href="https://www.instagram.com/vvidhig/"
                 target="_blank"
                 rel="noreferrer"
                 className="font-mono text-xs text-champagne/60 border border-champagne/20 px-6 py-3 tracking-widest uppercase hover:border-champagne/50 hover:text-champagne transition-all duration-200"
               >
-                Leetcode
+                Instagram
               </a>
             </div>
           </div>
 
-          {/* RIGHT — Floating photo blob */}
+          {/* RIGHT — Floating square photo */}
           <div
             className={`transition-all duration-1000 delay-300 flex items-center justify-center ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
           >
-            <div className="relative flex items-center justify-center">
-              {/* Outer glow ring */}
-              <div className="absolute w-72 h-72 rounded-full bg-burgundy/20 blur-2xl animate-pulse-slow" />
+            <div className="relative flex items-center justify-center py-8">
 
-              {/* Rotating dashed ring */}
-              <svg
-                className="absolute w-[360px] h-[360px] opacity-50"
-                viewBox="0 0 320 320"
-                style={{ animation: 'spin 20s linear infinite' }}
+              {/* Soft background glow */}
+              <div className="absolute w-72 h-80 rounded-3xl bg-burgundy/20 blur-3xl animate-pulse-slow" />
+
+              {/* Offset accent block (behind, bottom-right) */}
+              <div className="absolute w-[310px] h-[370px] rounded-2xl border border-sandgold/15"
+                style={{ transform: 'translate(12px, 12px)' }}
+              />
+
+              {/* Dashed outer border — gentle float */}
+              <div
+                className="absolute w-[320px] h-[320px] rounded-2xl border border-dashed border-sandgold/35"
+                style={{ animation: 'gentleFloat 3.5s ease-in-out infinite' }}
+              />
+
+              {/* Photo — portrait rectangle */}
+              <div
+                className="relative w-[290px] h-[355px] rounded-2xl overflow-hidden border border-sandgold/25 shadow-2xl"
+                style={{ animation: 'gentleFloat 3.5s ease-in-out infinite 0.4s' }}
               >
-                <rect
-                  x="10"
-                  y="10"
-                  width="300"
-                  height="300"
-                  rx="40"  // controls corner roundness
-                  ry="40"
-                  fill="none"
-                  stroke="#F2D9A0"
-                  strokeWidth="1"
-                  strokeDasharray="8 12"
-                />
-              </svg>
-
-              {/* Photo circle */}
-              <div className="relative w-80 h-80 rounded-full overflow-hidden border-2 border-sandgold/30 animate-float shadow-2xl shadow-wine">
                 <img
                   src="/photo.JPEG"
                   alt="Vidhi Gupta"
                   className="w-full h-full object-cover object-top"
                 />
+                {/* Bottom fade */}
+                <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-wine/50 to-transparent" />
               </div>
 
-              {/* Small floating badge */}
-              <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-wine border border-sandgold/30 px-4 py-1.5 whitespace-nowrap">
-                <span className="font-mono text-xs text-sandgold/80 tracking-widest">Vidhi Gupta</span>
+              {/* Name pill badge */}
+              <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 bg-wine border border-sandgold/30 px-5 py-2 whitespace-nowrap">
+                <span className="font-mono text-xs text-sandgold/80 tracking-widest">Hey, that's Me!</span>
               </div>
             </div>
 
-            <style>{`@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }`}</style>
+            <style>{`
+              @keyframes gentleFloat {
+                0%, 100% { transform: translateY(0px); }
+                50% { transform: translateY(-8px); }
+              }
+            `}</style>
           </div>
         </div>
 

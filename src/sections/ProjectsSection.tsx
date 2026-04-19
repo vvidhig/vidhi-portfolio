@@ -97,10 +97,10 @@ const ProjectCard: React.FC<{ project: typeof projects[0]; delay: number; inView
 
           {/* Extra metadata for large card */}
           {isLarge && project.techniques && (
-            <div className="grid grid-cols-5 gap-2 mb-6">
+            <div className="flex flex-wrap gap-2 mb-6">
               {project.techniques.map((t) => (
-                <div key={t} className="bg-wine/50 border border-sandgold/10 p-3 text-center">
-                  <p className="font-mono text-xs text-champagne/50 leading-snug">{t}</p>
+                <div key={t} className="bg-wine/50 border border-sandgold/10 px-3 py-2">
+                  <p className="font-mono text-xs text-champagne/50 leading-snug whitespace-nowrap">{t}</p>
                 </div>
               ))}
             </div>
